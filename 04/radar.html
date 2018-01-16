@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../echarts.min.js"></script>
+</head>
+<body>
+    <div id="main" style="width:900px;height:600px;"></div>
+    <script type="text/javascript">
+
+    var myChart = echarts.init(document.getElementById('main'));
+
+    option = {
+        title: {
+            text: '基础雷达图'
+        },
+        tooltip:{},
+        legend:{
+            data: ['预算分配(allocated)','实际开销(actual spending)']
+        },
+        radar: {
+            indicator: [
+                {name: '销售(sales)',max:6500},
+                {name: '管理(administration)',max:16000},
+                {name: '信息技术(information techology)',max:30000},
+                {name: '客服(customer support)',max:38000},
+                {name: '研发(development)',max:52000},
+                {name: '市场(marketing)',max:25000}
+            ]
+        },
+        series: [{
+            name :'预算 vs 开销',
+            type:'radar',
+            data: [
+                {
+                    value :[4300,10000,28000,35000,50000,19000],
+                    name:'预算分配(allocated)'
+                 },
+                 {
+                     value :[5000,14000,28000,32000,42000,22000],
+                     name:'实际开销(actual spending)'
+                 }]
+        }]
+    }
+    
+    myChart.setOption(option);
+
+    </script>
+</body>
+</html>
